@@ -7,12 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [26.32.0] - 2026-08-31
+## [26.32.0] - 2026-09-06
 
 ### Added
 
 - Added ll::Stacktrace::fromThread @zimuya4153
 - Added ll::Stacktrace::fromThreadId @zimuya4153
+- Implemented a bunch of inlined but useful functions @ShrBox
 
 ### Changed
 
