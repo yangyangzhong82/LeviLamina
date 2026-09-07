@@ -28,6 +28,12 @@ public:
     // NOLINTEND
 
 public:
+    template <typename... Args>
+    SetActorDataPacket(Args&&... args)
+    : PayloadPacket(std::forward<Args>(args)...),
+      mSerializationMode(SerializationMode::CerealOnly) {}
+
+public:
     // virtual functions
     // NOLINTBEGIN
     virtual ::MinecraftPacketIds getId() const /*override*/;

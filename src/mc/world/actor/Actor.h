@@ -948,15 +948,11 @@ public:
 
     MCAPI bool isPassenger(::Actor const& passenger) const;
 
-    MCAPI bool isPlayer() const;
-
     MCAPI bool isRiding(::Actor* targetVehicle) const;
 
     MCAPI bool isSilent() const;
 
     MCAPI bool isSitting() const;
-
-    MCAPI bool isSneaking() const;
 
     MCAPI bool isSpectator() const;
 
@@ -965,8 +961,6 @@ public:
     MCAPI bool isSurvival() const;
 
     MCAPI bool isSwimmer() const;
-
-    MCAPI bool isSwimming() const;
 
     MCAPI bool isTame() const;
 

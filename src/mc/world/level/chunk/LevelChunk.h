@@ -222,11 +222,11 @@ public:
     ::ll::TypedStorage<8, 856, ::LevelChunkVolumeData> mLevelChunkVolumeData;
     // NOLINTEND
 
-public:
-    LLAPI void populateHeightMapDataForSubChunkPacket(
-        short                                 subChunkAbsoluteIndex,
-        ::SubChunkPacket::SubChunkPacketData& subChunkPacketData
-    ) const;
+    // public:
+    //     LLAPI void populateHeightMapDataForSubChunkPacket(
+    //         short                                        subChunkAbsoluteIndex,
+    //         ::SubChunkPacketPayload::SubChunkPacketData& subChunkPacketData
+    //     ) const;
 
 public:
     // prevent constructor by default

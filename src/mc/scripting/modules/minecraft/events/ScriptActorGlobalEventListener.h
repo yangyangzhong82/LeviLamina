@@ -1,6 +1,7 @@
 #pragma once
 
 #include "mc/_HeaderOutputPredefine.h"
+#include "mc/scripting/modules/minecraft/Listener.h"
 
 // auto generated inclusion list
 #include "mc/world/actor/ActorInitializationMethod.h"
