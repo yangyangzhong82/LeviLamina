@@ -6,9 +6,9 @@
 #include "mc/common/editor/WidgetComponentType.h"
 #include "mc/deps/script_core/runtime/scripting/Result.h"
 #include "mc/deps/script_core/runtime/scripting/Result_deprecated.h"
-#include "mc/deps/scripting/WidgetGizmoScaleMode.h"
 #include "mc/editor/script/ScriptWidgetComponentBase.h"
 #include "mc/scripting/Axis.h"
+#include "mc/scripting/WidgetGizmoScaleMode.h"
 
 // auto generated forward declare list
 // clang-format off

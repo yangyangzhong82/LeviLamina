@@ -4,8 +4,8 @@
 
 // auto generated inclusion list
 #include "mc/deps/core/math/Vec2.h"
-#include "mc/deps/shared_types/ExtraKnockbackApproach.h"
-#include "mc/deps/shared_types/KnockbackMode.h"
+#include "mc/deps/shared_types/actor/ExtraKnockbackApproach.h"
+#include "mc/deps/shared_types/actor/KnockbackMode.h"
 #include "mc/world/actor/ActorFilterGroup.h"
 
 struct ApplyKnockbackRulesPreset {
