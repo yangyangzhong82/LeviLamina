@@ -3,6 +3,7 @@
 #include "mc/_HeaderOutputPredefine.h"
 
 // auto generated inclusion list
+#include "mc/PackCapabilityTrustLevel.h"
 #include "mc/client/gui/screens/controllers/PackCategory.h"
 #include "mc/deps/core/file/PathBuffer.h"
 #include "mc/deps/core/resource/ContentIdentity.h"
@@ -20,7 +21,6 @@
 #include "mc/resources/ManifestOrigin.h"
 #include "mc/resources/ManifestType.h"
 #include "mc/resources/MinEngineVersion.h"
-#include "mc/resources/PackCapability.h"
 #include "mc/resources/PackManifestFormat.h"
 #include "mc/resources/PackScope.h"
 #include "mc/resources/TemplateLockState.h"
@@ -28,6 +28,7 @@
 
 // auto generated forward declare list
 // clang-format off
+class I18n;
 class ResourceInformation;
 struct LegacyPackIdVersion;
 namespace Json { class Value; }
@@ -71,7 +72,7 @@ public:
     ::ll::TypedStorage<8, 32, ::MinEngineVersion>                     mMinEngineVersion;
     ::ll::TypedStorage<1, 1, ::TemplateLockState>                     mTemplateOptionLockState;
     ::ll::TypedStorage<4, 4, ::PackManifest::PackRedownloadableState> mPackReDownloadableState;
-    ::ll::TypedStorage<4, 4, ::PackCapability::TrustLevel>            mMaximumAllowedTrustLevel;
+    ::ll::TypedStorage<4, 4, ::PackCapabilityTrustLevel>              mMaximumAllowedTrustLevel;
     ::ll::TypedStorage<1, 1, bool>                                    mIsHidden;
     ::ll::TypedStorage<1, 1, bool>                                    mIsPlatformLocked;
     ::ll::TypedStorage<1, 1, bool>                                    mIsRandomSeedAllowed;
@@ -92,10 +93,10 @@ public:
             ::SharedTypes::v3_0_0::PackManifestDefinition::SliderSetting,
             ::SharedTypes::v3_0_0::PackManifestDefinition::ToggleSetting,
             ::SharedTypes::v3_0_0::PackManifestDefinition::DropdownSetting>>>>
-                                                                                                 mPackSettingsDef;
-    ::ll::TypedStorage<8, 64, ::std::unordered_map<::std::string, ::PackCapability::TrustLevel>> mCapabilities;
-    ::ll::TypedStorage<8, 136, ::ResourceMetadata>                                               mMetadata;
-    ::ll::TypedStorage<8, 24, ::SemVersion>                                                      mOptimizationVersion;
+                                                                                               mPackSettingsDef;
+    ::ll::TypedStorage<8, 64, ::std::unordered_map<::std::string, ::PackCapabilityTrustLevel>> mCapabilities;
+    ::ll::TypedStorage<8, 136, ::ResourceMetadata>                                             mMetadata;
+    ::ll::TypedStorage<8, 24, ::SemVersion>                                                    mOptimizationVersion;
     // NOLINTEND
 
 public:
@@ -128,25 +129,33 @@ public:
 
     MCAPI void _serializeModules(::Json::Value& destination) const;
 
+    MCAPI void addModule(::ResourceInformation const& resourceInfo);
+
+    MCAPI void addPackCapability(::std::string_view capability, ::PackCapabilityTrustLevel trustLevel);
+
+    MCAPI void addPackDependency(::PackIdVersion const& packId);
+
 #ifdef LL_PLAT_C
     MCAPI ::Core::PathBuffer<::std::string> generateBaseIconPath() const;
 
     MCAPI ::Core::PathBuffer<::std::string> generateIconPath() const;
 #endif
 
-    MCAPI ::std::string getDescription() const;
+    MCAPI ::std::string getDescription(::I18n& loc) const;
 
-    MCAPI ::std::string getName() const;
+    MCAPI ::std::string getName(::I18n& loc) const;
 
-    MCAPI ::std::string getNameForTelemetry() const;
+    MCAPI ::std::string getNameForTelemetry(::I18n& loc) const;
 
-    MCAPI ::std::string getNameWithVersionForTelemetry() const;
+    MCAPI ::std::string getNameWithVersionForTelemetry(::I18n& loc) const;
 
-#ifdef LL_PLAT_C
-    MCAPI ::std::unordered_map<::std::string, ::std::string> getPackNameLocalization() const;
-#endif
+    MCAPI ::std::optional<::std::vector<::std::string>> getPackSettingsLocKeys() const;
 
     MCAPI bool hasPackCapability(::std::string_view capability) const;
+
+#ifdef LL_PLAT_C
+    MCAPI ::PackManifest& operator=(::PackManifest&&);
+#endif
 
     MCAPI void serialize(::PackManifestFormat formatVersion, ::Json::Value& destination) const;
 
@@ -154,7 +163,14 @@ public:
 
     MCAPI void setLastModifiedDate(int64 lastModifiedDate);
 
-    MCAPI void setLocalizedNameKeywords(::std::unordered_map<::std::string, ::std::string> const& localizationNameMap);
+    MCAPI void setLocalizedNameKeywords(
+        ::std::unordered_map<::std::string, ::std::string> const& localizationNameMap,
+        ::I18n&                                                   loc
+    );
+
+    MCAPI void setMinEngineVersion(::MinEngineVersion const& engineVersion);
+
+    MCAPI void setOptimizationVersion(::SemVersion const& optimizationVersion);
 
     MCAPI void setPackSettingsDef(
         ::std::vector<::std::variant<
@@ -201,11 +217,5 @@ public:
     MCAPI ::std::unique_ptr<::PackManifest> $clone() const;
 
 
-    // NOLINTEND
-
-public:
-    // vftables
-    // NOLINTBEGIN
-    MCNAPI static void** $vftable();
     // NOLINTEND
 };

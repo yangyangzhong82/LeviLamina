@@ -6,6 +6,11 @@
 #include "mc/deps/shared_types/v1_26_20/block/GeometryComponent.h"
 #include "mc/deps/shared_types/v1_26_20/block/MaterialInstancesComponent.h"
 
+// auto generated forward declare list
+// clang-format off
+namespace cereal { struct ReflectionCtx; }
+// clang-format on
+
 namespace SharedTypes::v1_26_20::BlockDefinition {
 
 struct ItemVisualComponent {
@@ -20,6 +25,12 @@ public:
     // member functions
     // NOLINTBEGIN
     MCFOLD bool operator==(::SharedTypes::v1_26_20::BlockDefinition::ItemVisualComponent const&) const;
+    // NOLINTEND
+
+public:
+    // static functions
+    // NOLINTBEGIN
+    MCAPI static void bindType(::cereal::ReflectionCtx& ctx);
     // NOLINTEND
 
 public:

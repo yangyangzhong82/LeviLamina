@@ -8,6 +8,11 @@
 #include "mc/deps/shared_types/v1_26_20/block/ConnectionType.h"
 #include "mc/deps/shared_types/v1_26_20/block/Direction.h"
 
+// auto generated forward declare list
+// clang-format off
+namespace cereal { struct ReflectionCtx; }
+// clang-format on
+
 namespace SharedTypes::v1_26_20::BlockDefinition {
 
 struct ConnectionRuleComponent {
@@ -17,6 +22,12 @@ public:
     ::ll::TypedStorage<1, 1, ::SharedTypes::v1_26_20::ConnectionType>                      mConnectionsFrom;
     ::ll::TypedStorage<8, 24, ::std::vector<::SharedTypes::v1_26_20::Direction>>           mEnabledDirections;
     ::ll::TypedStorage<1, 1, ::Bedrock::EnumSet<::SharedTypes::v1_26_20::ConnectionID, 4>> mConnectionsFromMask;
+    // NOLINTEND
+
+public:
+    // static functions
+    // NOLINTBEGIN
+    MCAPI static void bindType(::cereal::ReflectionCtx& ctx);
     // NOLINTEND
 
 public:

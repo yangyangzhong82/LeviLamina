@@ -2,6 +2,11 @@
 
 #include "mc/_HeaderOutputPredefine.h"
 
+// auto generated forward declare list
+// clang-format off
+namespace cereal { struct ReflectionCtx; }
+// clang-format on
+
 namespace SharedTypes::v1_26_20::BlockDefinition {
 
 struct CraftingTableComponent {
@@ -16,6 +21,12 @@ public:
     // member functions
     // NOLINTBEGIN
     MCFOLD bool operator==(::SharedTypes::v1_26_20::BlockDefinition::CraftingTableComponent const&) const;
+    // NOLINTEND
+
+public:
+    // static functions
+    // NOLINTBEGIN
+    MCAPI static void bindType(::cereal::ReflectionCtx& ctx);
     // NOLINTEND
 
 public:
