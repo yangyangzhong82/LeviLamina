@@ -43,6 +43,12 @@ public:
         ::ll::TypedStorage<1, 1, ::SubChunkPacketPayload::HeightMapDataType>                   mRenderHeightMapType;
         ::ll::TypedStorage<1, 257, ::std::optional<::std::array<::std::array<schar, 16>, 16>>> mSubchunkRenderHeightMap;
         // NOLINTEND
+
+    public:
+        HeightmapData() {
+            mHeightMapType       = HeightMapDataType::NoData;
+            mRenderHeightMapType = HeightMapDataType::NoData;
+        }
     };
 
     struct SubChunkPosOffset {
@@ -65,6 +71,39 @@ public:
         ::ll::TypedStorage<1, 516, ::SubChunkPacketPayload::HeightmapData>       mHeightMapData;
         ::ll::TypedStorage<8, 16, ::std::optional<uint64>>                       mBlobId;
         // NOLINTEND
+
+    public:
+        SubChunkPacketData(SubChunkPosOffset const& pos, SubChunkRequestResult requestResult) {
+            mSubChunkPosOffset                   = pos;
+            mResult                              = requestResult;
+            mSerializedSubChunk                  = {};
+            mHeightMapData->mHeightMapType       = HeightMapDataType::NoData;
+            mHeightMapData->mRenderHeightMapType = HeightMapDataType::NoData;
+            mBlobId                              = 0;
+        }
+
+        SubChunkPacketData& operator=(SubChunkPacketData const& rhs) {
+            mSubChunkPosOffset                   = rhs.mSubChunkPosOffset;
+            mSerializedSubChunk                  = rhs.mSerializedSubChunk;
+            mResult                              = rhs.mResult;
+            mHeightMapData->mHeightMapType       = rhs.mHeightMapData->mHeightMapType;
+            mHeightMapData->mRenderHeightMapType = rhs.mHeightMapData->mRenderHeightMapType;
+            mBlobId                              = rhs.mBlobId;
+            return *this;
+        }
+
+        SubChunkPacketData() {
+            mSubChunkPosOffset = {
+                0,
+                0,
+                0,
+            };
+            mResult                              = SubChunkRequestResult::Undefined;
+            mSerializedSubChunk                  = {};
+            mHeightMapData->mHeightMapType       = HeightMapDataType::NoData;
+            mHeightMapData->mRenderHeightMapType = HeightMapDataType::NoData;
+            mBlobId                              = 0;
+        }
 
     public:
         // member functions
