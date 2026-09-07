@@ -96,7 +96,7 @@ public:
 
     virtual ~Mob() /*override*/;
 
-    virtual void knockback(::Actor* source, int damage, float xd, float zd, ::KnockbackParameters const& parameters);
+    virtual void knockback(::Actor* source, float damage, float xd, float zd, ::KnockbackParameters const& parameters);
 
     virtual void kill() /*override*/;
 
@@ -276,8 +276,6 @@ public:
 
     MCAPI ::BuiltInMobComponents _addBuiltInMobComponents();
 
-    MCAPI void _doSoulSpeedParticleEffect();
-
     MCAPI void _doSprintParticleEffect();
 
     MCAPI bool _initHardCodedComponents(bool isClientSide);
@@ -287,8 +285,6 @@ public:
     MCAPI bool _isDoingMaceSmashAttack() const;
 
     MCAPI void _processSoulSpeed();
-
-    MCAPI void _updateSprintingState();
 
     MCAPI void
     addSpeedModifier(::mce::UUID const& attributeID, ::std::string const& attributeName, float speedModifier);
@@ -314,8 +310,6 @@ public:
 #ifdef LL_PLAT_C
     MCAPI ::std::vector<int> getAllArmorID() const;
 #endif
-
-    MCAPI float getArmorCoverPercentage() const;
 
     MCAPI int getArmorTypeHash();
 
@@ -367,6 +361,8 @@ public:
 
     MCAPI bool isAbleToMove() const;
 
+    MCAPI bool isTransitioningSitting() const;
+
     MCAPI void joinCaravan(::Mob* head);
 
     MCAPI void jumpFromGround();
@@ -377,9 +373,7 @@ public:
 
     MCAPI void onPlayerDimensionChanged(::Player* player, ::DimensionType fromDimension, ::DimensionType toDimension);
 
-#ifdef LL_PLAT_C
     MCAPI void removeSpeedModifier(::mce::UUID const& attributeID);
-#endif
 
     MCAPI void resetAttributes();
 
@@ -398,8 +392,6 @@ public:
     MCAPI bool shouldApplyWaterGravity();
 
     MCAPI void snapToYBodyRot(float yBodyRot);
-
-    MCAPI void tickMobEffectsVisuals();
 
     MCAPI void updateEquipment();
 
@@ -437,7 +429,7 @@ public:
 
     MCAPI void $reloadHardcoded(::ActorInitializationMethod method, ::VariantParameterList const& params);
 
-    MCAPI void $knockback(::Actor* source, int damage, float xd, float zd, ::KnockbackParameters const& parameters);
+    MCAPI void $knockback(::Actor* source, float damage, float xd, float zd, ::KnockbackParameters const& parameters);
 
     MCAPI void $kill();
 

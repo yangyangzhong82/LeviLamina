@@ -8,7 +8,6 @@
 
 // auto generated forward declare list
 // clang-format off
-class BlockPos;
 class ChunkPos;
 class LevelChunk;
 // clang-format on
@@ -19,10 +18,6 @@ public:
     // NOLINTBEGIN
     ::ll::TypedStorage<4, 48, ::Bounds> mLimitArea;
     // NOLINTEND
-
-public:
-    // prevent constructor by default
-    WorldLimitChunkSource();
 
 public:
     // virtual functions
@@ -39,19 +34,6 @@ public:
     virtual bool canCreateViews() const /*override*/;
 
     virtual ::std::unordered_map<::ChunkPos, ::std::weak_ptr<::LevelChunk>> const* getChunkMap() /*override*/;
-    // NOLINTEND
-
-public:
-    // member functions
-    // NOLINTBEGIN
-    MCAPI
-    WorldLimitChunkSource(::std::unique_ptr<::ChunkSource> storage, ::BlockPos const& center, int width, int depth);
-    // NOLINTEND
-
-public:
-    // constructor thunks
-    // NOLINTBEGIN
-    MCAPI void* $ctor(::std::unique_ptr<::ChunkSource> storage, ::BlockPos const& center, int width, int depth);
     // NOLINTEND
 
 public:

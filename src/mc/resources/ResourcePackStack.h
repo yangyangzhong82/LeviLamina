@@ -16,6 +16,7 @@ class LoadedResourceData;
 class PackInstance;
 class PackSourceReport;
 class ResourceLocation;
+struct PackIdVersion;
 struct PackInstanceId;
 class ResourcePackMergeStrategy;
 // clang-format on
@@ -90,6 +91,10 @@ public:
 #ifdef LL_PLAT_C
     MCAPI ::std::vector<::PackInstanceId> getStackAsIdentities() const;
 
+    MCAPI bool isOnStack(::PackIdVersion const& packIdentity) const;
+
+    MCAPI void removeInvalidPacks();
+
     MCAPI void serialize(::std::ostream& fileStream) const;
 
     MCAPI bool supportsVibrantVisuals() const;
@@ -107,7 +112,7 @@ public:
     );
 
     MCAPI static ::std::unique_ptr<::ResourcePackStack> deserialize(
-        ::std::istream&                                                       fileStream,
+        ::std::string_view                                                    fileData,
         ::Bedrock::NotNullNonOwnerPtr<::IResourcePackRepository const> const& repo,
         ::std::optional<::std::string>                                        levelId
     );

@@ -37,9 +37,12 @@ struct ActorUpgradeEndedEvent;
 struct ActorUpgradeStartedEvent;
 struct ActorUpgradeTriggeredEvent;
 struct ActorUseItemEvent;
+struct BeforeMountTamingEvent;
+struct BeforeTamingEvent;
 struct KnockBackEvent;
 struct MountTamingEvent;
 struct ProjectileHitEvent;
+struct TamingEvent;
 // clang-format on
 
 struct ActorNotificationEvent : public ::EventVariantImpl<
@@ -65,6 +68,7 @@ struct ActorNotificationEvent : public ::EventVariantImpl<
                                     ::ActorUseItemEvent const,
                                     ::KnockBackEvent const,
                                     ::MountTamingEvent const,
+                                    ::TamingEvent const,
                                     ::ActorItemEventAfterDroppedItem const,
                                     ::ProjectileHitEvent const,
                                     ::ActorGriefingBlockEvent const,
@@ -75,4 +79,6 @@ struct ActorNotificationEvent : public ::EventVariantImpl<
                                     ::ActorBeforeAcquireItemEvent const,
                                     ::ActorBeforeHealEvent const,
                                     ::ActorBeforeHurtEvent const,
+                                    ::BeforeTamingEvent const,
+                                    ::BeforeMountTamingEvent const,
                                     ::ActorUpgradeStartedEvent const> {};

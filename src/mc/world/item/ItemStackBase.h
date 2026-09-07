@@ -77,6 +77,10 @@ public:
     // NOLINTEND
 
 public:
+    // prevent constructor by default
+    ItemStackBase();
+
+public:
     // virtual functions
     // NOLINTBEGIN
     virtual ~ItemStackBase();
@@ -97,8 +101,6 @@ public:
 public:
     // member functions
     // NOLINTBEGIN
-    MCAPI ItemStackBase();
-
     MCAPI explicit ItemStackBase(::RecipeIngredient const& ingredient);
 
     MCAPI ItemStackBase(::ItemStackBase const& rhs);
@@ -127,13 +129,7 @@ public:
 
     MCAPI void _setChargedItem(::ItemInstance const& item);
 
-#ifdef LL_PLAT_C
     MCAPI bool _setItem(int id, bool doRemap);
-#endif
-
-#ifdef LL_PLAT_S
-    MCAPI bool _setItem(int id, bool doRemap);
-#endif
 
     MCAPI void _updateCompareHashes();
 
@@ -198,11 +194,7 @@ public:
 
     MCAPI ::std::string getName() const;
 
-#ifdef LL_PLAT_C
-    MCAPI ::std::unique_ptr<::CompoundTag> getNetworkUserData() const;
-
     MCAPI float getPickupPopPercentage() const;
-#endif
 
     MCAPI ::HashedString const& getRawNameHash() const;
 
@@ -319,6 +311,8 @@ public:
 
     MCAPI void setJustBrewed(bool justBrewed);
 
+    MCAPI void setPickupTime();
+
     MCAPI void setRepairCost(int cost);
 
     MCAPI void setUnbreakable(bool isUnbreakable);
@@ -381,8 +375,6 @@ public:
 public:
     // constructor thunks
     // NOLINTBEGIN
-    MCAPI void* $ctor();
-
     MCAPI void* $ctor(::RecipeIngredient const& ingredient);
 
     MCAPI void* $ctor(::ItemStackBase const& rhs);

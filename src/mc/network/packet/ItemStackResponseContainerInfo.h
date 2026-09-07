@@ -17,4 +17,10 @@ public:
     ::ll::TypedStorage<4, 12, ::FullContainerName>                        mFullContainerName;
     ::ll::TypedStorage<8, 24, ::std::vector<::ItemStackResponseSlotInfo>> mSlots;
     // NOLINTEND
+
+public:
+    // member functions
+    // NOLINTBEGIN
+    MCAPI bool operator==(::ItemStackResponseContainerInfo const& rhs) const;
+    // NOLINTEND
 };

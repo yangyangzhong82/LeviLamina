@@ -49,6 +49,7 @@ public:
     ::ll::TypedStorage<1, 1, bool>               mExcludeAgents;
     ::ll::TypedStorage<1, 1, bool>               mIsExplicitIdSelector;
     ::ll::TypedStorage<1, 1, bool>               mForceDimensionFiltering;
+    ::ll::TypedStorage<1, 1, bool>               mIsNameFiltersOnlyInChain;
     // NOLINTEND
 
 public:

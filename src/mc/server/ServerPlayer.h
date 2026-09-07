@@ -34,6 +34,7 @@ class Actor;
 class ActorDamageSource;
 class BlockActor;
 class BlockPos;
+class ChunkPos;
 class ChunkSource;
 class ComplexInventoryTransaction;
 class CompoundTag;
@@ -139,11 +140,7 @@ public:
 public:
     // virtual functions
     // NOLINTBEGIN
-#ifdef LL_PLAT_S
-    virtual ~ServerPlayer() /*override*/ = default;
-#else // LL_PLAT_C
     virtual ~ServerPlayer() /*override*/;
-#endif
 
     virtual void
     initializeComponents(::ActorInitializationMethod method, ::VariantParameterList const& params) /*override*/;
@@ -153,7 +150,7 @@ public:
     virtual void normalTick() /*override*/;
 
     virtual void
-    knockback(::Actor* source, int damage, float xd, float zd, ::KnockbackParameters const& parameters) /*override*/;
+    knockback(::Actor* source, float damage, float xd, float zd, ::KnockbackParameters const& parameters) /*override*/;
 
     virtual void die(::ActorDamageSource const& source) /*override*/;
 
@@ -290,6 +287,8 @@ public:
 
     virtual ::std::optional<::PlayerPartyInfo> getPartyInfo_UNTRUSTED() const /*override*/;
 
+    virtual void addChunksToQueue(::std::vector<::ChunkPos> const& chunkPostions) /*override*/;
+
     virtual int _getSpawnChunkLimit() const;
 
     virtual void _updateChunkPublisherView(::Vec3 const& position, float minDistance);
@@ -418,9 +417,7 @@ public:
 public:
     // destructor thunk
     // NOLINTBEGIN
-#ifdef LL_PLAT_C
     MCAPI void $dtor();
-#endif
     // NOLINTEND
 
 public:
@@ -432,7 +429,7 @@ public:
 
     MCAPI void $normalTick();
 
-    MCAPI void $knockback(::Actor* source, int damage, float xd, float zd, ::KnockbackParameters const& parameters);
+    MCAPI void $knockback(::Actor* source, float damage, float xd, float zd, ::KnockbackParameters const& parameters);
 
     MCAPI void $die(::ActorDamageSource const& source);
 
@@ -566,6 +563,8 @@ public:
     MCAPI uchar $getMaxChunkBuildRadius() const;
 
     MCAPI ::std::optional<::PlayerPartyInfo> $getPartyInfo_UNTRUSTED() const;
+
+    MCAPI void $addChunksToQueue(::std::vector<::ChunkPos> const& chunkPostions);
 
     MCAPI int $_getSpawnChunkLimit() const;
 

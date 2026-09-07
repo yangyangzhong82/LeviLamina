@@ -75,7 +75,7 @@ public:
         MCFOLD ::SharedTypes::v1_26_20::BlockDefinition::GeometryComponent::NWayVisualRotationStateMapping&
         operator=(::SharedTypes::v1_26_20::BlockDefinition::GeometryComponent::NWayVisualRotationStateMapping const&);
 
-        MCAPI bool operator==(
+        MCFOLD bool operator==(
             ::SharedTypes::v1_26_20::BlockDefinition::GeometryComponent::NWayVisualRotationStateMapping const&
         ) const;
 

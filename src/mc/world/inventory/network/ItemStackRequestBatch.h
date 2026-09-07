@@ -2,14 +2,9 @@
 
 #include "mc/_HeaderOutputPredefine.h"
 
-// auto generated inclusion list
-#include "mc/platform/Result.h"
-
 // auto generated forward declare list
 // clang-format off
-class BinaryStream;
 class ItemStackRequestData;
-class ReadOnlyBinaryStream;
 // clang-format on
 
 class ItemStackRequestBatch {
@@ -22,12 +17,10 @@ public:
 public:
     // member functions
     // NOLINTBEGIN
-    MCAPI void write(::BinaryStream& stream) const;
-    // NOLINTEND
+#ifdef LL_PLAT_C
+    MCAPI void addDeserializedRequest(::std::unique_ptr<::ItemStackRequestData> request);
 
-public:
-    // static functions
-    // NOLINTBEGIN
-    MCAPI static ::Bedrock::Result<::std::unique_ptr<::ItemStackRequestBatch>> read(::ReadOnlyBinaryStream& stream);
+    MCAPI void addRequest(::std::unique_ptr<::ItemStackRequestData> request);
+#endif
     // NOLINTEND
 };

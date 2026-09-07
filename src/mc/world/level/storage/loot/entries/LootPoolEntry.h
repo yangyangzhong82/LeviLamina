@@ -8,7 +8,6 @@ class ItemStack;
 class LootItemCondition;
 class LootTableContext;
 class Random;
-namespace Json { class Value; }
 // clang-format on
 
 class LootPoolEntry {
@@ -39,12 +38,5 @@ public:
     virtual ~LootPoolEntry() = default;
 
     virtual ::LootPoolEntry::EntryType getEntryType() const = 0;
-    // NOLINTEND
-
-public:
-    // static functions
-    // NOLINTBEGIN
-    MCAPI static ::std::unique_ptr<::LootPoolEntry>
-    deserialize(::Json::Value const& entryJson, bool usingUpcomingCreatorFeaturesExperiment);
     // NOLINTEND
 };

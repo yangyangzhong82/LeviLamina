@@ -14,7 +14,6 @@ class BlockPos;
 class BlockVolumeBase;
 class BoundingBox;
 class ChunkPos;
-class CompoundBlockVolume;
 class Dimension;
 class Vec3;
 namespace Editor { class RelativeVolumeListBlockVolume; }
@@ -64,7 +63,7 @@ public:
             ::BlockPos const*> const test
     ) = 0;
 
-    virtual ::CompoundBlockVolume getContiguousSelection(
+    virtual ::Editor::RelativeVolumeListBlockVolume getContiguousSelection(
         int const                                            size,
         ::Facing::Name const&                                selectionDirection,
         ::Vec3 const&                                        startingLocation,

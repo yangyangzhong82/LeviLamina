@@ -5,6 +5,11 @@
 // auto generated inclusion list
 #include "mc/deps/shared_types/v1_26_20/block/TintMethod.h"
 
+// auto generated forward declare list
+// clang-format off
+namespace cereal { struct ReflectionCtx; }
+// clang-format on
+
 namespace SharedTypes::v1_26_20::BlockDefinition {
 
 struct DestructionParticlesComponent {
@@ -14,6 +19,12 @@ public:
     ::ll::TypedStorage<8, 32, ::std::string>                      mTexture;
     ::ll::TypedStorage<1, 1, ::SharedTypes::v1_26_20::TintMethod> mTintMethod;
     ::ll::TypedStorage<1, 1, uchar>                               mParticleCount;
+    // NOLINTEND
+
+public:
+    // static functions
+    // NOLINTBEGIN
+    MCAPI static void bindType(::cereal::ReflectionCtx& ctx);
     // NOLINTEND
 
 public:

@@ -2,6 +2,15 @@
 
 #include "mc/_HeaderOutputPredefine.h"
 
+// auto generated inclusion list
+#include "mc/util/Mirror.h"
+#include "mc/util/Rotation.h"
+
+// auto generated forward declare list
+// clang-format off
+class Vec3;
+// clang-format on
+
 class BlockPos {
 public:
     // member variables
@@ -21,6 +30,8 @@ public:
     MCAPI ::BlockPos south() const;
 
     MCAPI ::std::string toString() const;
+
+    MCAPI ::BlockPos transform(::Rotation rotation, ::Mirror mirror, ::Vec3 const& pivot) const;
 
     MCAPI ::BlockPos west() const;
     // NOLINTEND

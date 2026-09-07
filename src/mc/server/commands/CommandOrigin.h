@@ -21,6 +21,7 @@ class Dimension;
 class ILevel;
 class Level;
 class NetworkIdentifier;
+class Player;
 class Vec2;
 class Vec3;
 struct CommandOriginData;
@@ -72,6 +73,8 @@ public:
     virtual bool isWorldBuilder() const;
 
     virtual bool canUseCommandsWithoutCheatsEnabled() const;
+
+    virtual bool canChangePermissionsOfPlayer(::Player const& player) const;
 
     virtual bool isSelectorExpansionAllowed() const;
 
@@ -152,6 +155,8 @@ public:
     MCAPI bool $isWorldBuilder() const;
 
     MCFOLD bool $canUseCommandsWithoutCheatsEnabled() const;
+
+    MCAPI bool $canChangePermissionsOfPlayer(::Player const& player) const;
 
     MCAPI bool $isSelectorExpansionAllowed() const;
 

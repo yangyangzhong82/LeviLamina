@@ -17,15 +17,17 @@ public:
 public:
     // member functions
     // NOLINTBEGIN
+#ifdef LL_PLAT_C
     MCAPI bool operator!=(::mce::Color const& c) const;
+#endif
 
     MCAPI bool operator==(::mce::Color const& c) const;
 
 #ifdef LL_PLAT_C
     MCAPI int toARGB() const;
-#endif
 
     MCAPI ::std::string toHexString() const;
+#endif
     // NOLINTEND
 
 public:
@@ -57,23 +59,19 @@ public:
 
 #ifdef LL_PLAT_C
     MCAPI static ::mce::Color const& ORANGE();
-#endif
+
+    MCAPI static ::mce::Color const& PARTY_BLUE();
 
     MCAPI static ::mce::Color const& PINK();
+#endif
 
     MCAPI static ::mce::Color const& PURPLE();
 
+#ifdef LL_PLAT_C
     MCAPI static ::mce::Color const& REBECCA_PURPLE();
+#endif
 
     MCAPI static ::mce::Color const& RED();
-
-    MCAPI static ::mce::Color const& SHADE_DOWN();
-
-    MCAPI static ::mce::Color const& SHADE_NORTH_SOUTH();
-
-    MCAPI static ::mce::Color const& SHADE_UP();
-
-    MCAPI static ::mce::Color const& SHADE_WEST_EAST();
 
     MCAPI static ::mce::Color const& WHITE();
 

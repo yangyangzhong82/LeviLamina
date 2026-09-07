@@ -38,6 +38,8 @@ public:
 
     MCAPI int _removeCursorItem();
 
+    MCAPI int _removeCursorItem(::ItemStack const& item, bool requireExactAux, int maxCount);
+
     MCAPI int _removeSimpleContainerItem(
         ::SimpleContainer& container,
         ::ContainerID      containerId,

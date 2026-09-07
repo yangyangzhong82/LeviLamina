@@ -28,6 +28,8 @@ public:
     // NOLINTBEGIN
     MCAPI ::Bedrock::Result<void> deserialize(::ReadOnlyBinaryStream& stream);
 
+    MCAPI bool operator==(::ItemStackNetIdVariant const& other) const;
+
     MCAPI ::std::string toString() const;
     // NOLINTEND
 };

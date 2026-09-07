@@ -8,6 +8,7 @@
 
 // auto generated forward declare list
 // clang-format off
+namespace cereal { struct ReflectionCtx; }
 namespace cereal::internal { struct ConstraintDescription; }
 // clang-format on
 
@@ -48,6 +49,12 @@ public:
 
 
         // NOLINTEND
+
+    public:
+        // vftables
+        // NOLINTBEGIN
+        MCNAPI static void** $vftable();
+        // NOLINTEND
     };
 
 public:
@@ -55,6 +62,12 @@ public:
     // NOLINTBEGIN
     ::ll::TypedStorage<4, 8, ::std::array<uint, 2>> mDelayIntervalRange;
     ::ll::TypedStorage<1, 1, bool>                  mLooping;
+    // NOLINTEND
+
+public:
+    // static functions
+    // NOLINTBEGIN
+    MCAPI static void bindType(::cereal::ReflectionCtx& ctx);
     // NOLINTEND
 
 public:

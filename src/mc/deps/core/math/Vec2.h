@@ -11,12 +11,6 @@ public:
     // NOLINTEND
 
 public:
-    // static functions
-    // NOLINTBEGIN
-    MCAPI static ::Vec2 rotate(::Vec2 const& v, float angleinRadians);
-    // NOLINTEND
-
-public:
     // static variables
     // NOLINTBEGIN
     MCAPI static ::Vec2 const& ONE();

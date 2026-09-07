@@ -8,6 +8,7 @@
 // auto generated forward declare list
 // clang-format off
 class Vec3;
+namespace cereal { struct ReflectionCtx; }
 // clang-format on
 
 namespace SharedTypes::v1_26_20::BlockDefinition {
@@ -24,6 +25,12 @@ public:
             ::SharedTypes::v1_26_20::BlockDefinition::BoundingBoxData,
             ::std::vector<::SharedTypes::v1_26_20::BlockDefinition::BoundingBoxData>>>
         mCollisionBoxData;
+    // NOLINTEND
+
+public:
+    // static functions
+    // NOLINTBEGIN
+    MCAPI static void bindType(::cereal::ReflectionCtx& ctx);
     // NOLINTEND
 
 public:

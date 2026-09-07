@@ -35,9 +35,9 @@ MCNAPI ::std::string const& DARK_GREEN();
 
 MCNAPI ::std::string const& DARK_PURPLE();
 
+#ifdef LL_PLAT_C
 MCNAPI ::std::string const& ESCAPE();
 
-#ifdef LL_PLAT_C
 MCNAPI ::std::string const& GOLD();
 #endif
 

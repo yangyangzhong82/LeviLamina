@@ -59,4 +59,10 @@ public:
     // NOLINTBEGIN
     MCAPI void toNBT(::CompoundTag& tag, int val) const;
     // NOLINTEND
+
+public:
+    // vftables
+    // NOLINTBEGIN
+    MCNAPI static void** $vftable();
+    // NOLINTEND
 };

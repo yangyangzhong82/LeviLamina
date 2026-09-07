@@ -9,17 +9,18 @@
 // auto generated forward declare list
 // clang-format off
 class BlockActorDataPacket;
-class BlockActorDynamicPropertiesComponent;
 class BlockSource;
 class BlockType;
 class CompoundTag;
 class DataLoadHelper;
+class DynamicPropertiesBlockActorComponent;
 class ILevel;
 class IVanillaMainBlockActorComponent;
 class IVanillaRenderBlockActorComponent;
 class IVanillaTickBlockActorComponent;
 class LevelChunk;
 class Player;
+class RandomizableContainerBlockActorComponent;
 class SaveContext;
 // clang-format on
 
@@ -27,21 +28,22 @@ class BlockActor {
 public:
     // member variables
     // NOLINTBEGIN
-    ::ll::TypedStorage<4, 12, ::BlockPos>                                               mPosition;
-    ::ll::TypedStorage<1, 1, ::BlockActorType const>                                    mType;
-    ::ll::TypedStorage<8, 8, ::std::unique_ptr<::BlockActorDynamicPropertiesComponent>> mDynamicProperties;
+    ::ll::TypedStorage<4, 12, ::BlockPos>                                                   mPosition;
+    ::ll::TypedStorage<1, 1, ::BlockActorType const>                                        mType;
+    ::ll::TypedStorage<8, 8, ::std::unique_ptr<::DynamicPropertiesBlockActorComponent>>     mDynamicProperties;
+    ::ll::TypedStorage<8, 8, ::std::unique_ptr<::RandomizableContainerBlockActorComponent>> mRandomizableContainer;
     // NOLINTEND
 
 public:
     // virtual functions
     // NOLINTBEGIN
-    virtual ~BlockActor() = default;
+    virtual ~BlockActor();
 
     virtual void load(::ILevel& level, ::CompoundTag const& tag, ::DataLoadHelper& helper);
 
-    virtual bool save(::CompoundTag& tag, ::SaveContext const& context) const;
+    virtual bool save(::CompoundTag& tag, ::SaveContext const& saveContext) const;
 
-    virtual bool saveItemInstanceData(::CompoundTag& tag, ::SaveContext const& saveContext) const;
+    virtual bool saveItemInstanceData(::CompoundTag& tag) const;
 
     virtual void saveBlockData(::CompoundTag& tag, ::BlockSource& region) const;
 
@@ -67,6 +69,8 @@ public:
 
     virtual void triggerEvent(int b0, int b1);
 
+    virtual bool isTypeOrDerived(::BlockActorType type) const;
+
     virtual void getDebugText(
         ::std::vector<::std::string>& outputInfo,
         ::BlockPos const&             debugPos,
@@ -77,7 +81,11 @@ public:
 
     virtual void _onUpdatePacket(::CompoundTag const& data, ::BlockSource& region);
 
+#ifdef LL_PLAT_S
     virtual bool _playerCanUpdate(::Player const& player) const;
+#else // LL_PLAT_C
+    virtual bool _playerCanUpdate(::Player const& fromPlayer) const;
+#endif
 
     virtual ::IVanillaRenderBlockActorComponent const* _getRenderComponent() const;
 
@@ -119,13 +127,19 @@ public:
     // NOLINTEND
 
 public:
+    // destructor thunk
+    // NOLINTBEGIN
+    MCAPI void $dtor();
+    // NOLINTEND
+
+public:
     // virtual function thunks
     // NOLINTBEGIN
     MCAPI void $load(::ILevel& level, ::CompoundTag const& tag, ::DataLoadHelper& helper);
 
-    MCAPI bool $save(::CompoundTag& tag, ::SaveContext const& context) const;
+    MCAPI bool $save(::CompoundTag& tag, ::SaveContext const& saveContext) const;
 
-    MCAPI bool $saveItemInstanceData(::CompoundTag& tag, ::SaveContext const& saveContext) const;
+    MCAPI bool $saveItemInstanceData(::CompoundTag& tag) const;
 
     MCFOLD void $saveBlockData(::CompoundTag& tag, ::BlockSource& region) const;
 
@@ -151,6 +165,8 @@ public:
 
     MCFOLD void $triggerEvent(int b0, int b1);
 
+    MCAPI bool $isTypeOrDerived(::BlockActorType type) const;
+
     MCAPI void $getDebugText(
         ::std::vector<::std::string>& outputInfo,
         ::BlockPos const&             debugPos,
@@ -161,7 +177,11 @@ public:
 
     MCFOLD void $_onUpdatePacket(::CompoundTag const& data, ::BlockSource& region);
 
+#ifdef LL_PLAT_S
     MCFOLD bool $_playerCanUpdate(::Player const& player) const;
+#else // LL_PLAT_C
+    MCFOLD bool $_playerCanUpdate(::Player const& fromPlayer) const;
+#endif
 
     MCFOLD ::IVanillaRenderBlockActorComponent const* $_getRenderComponent() const;
 
