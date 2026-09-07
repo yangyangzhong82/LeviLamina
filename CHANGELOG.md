@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Adapted to Minecraft 26.40.5 & 26.40.8 @ShrBox @Lovelylavender4 @KawaiiNahida
+
 ## [26.32.2] - 2026-09-07
 
 ### Changed
