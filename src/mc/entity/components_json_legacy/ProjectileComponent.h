@@ -3,11 +3,11 @@
 #include "mc/_HeaderOutputPredefine.h"
 
 // auto generated inclusion list
-#include "mc/ProjectileHitState.h"
-#include "mc/ShouldBounce.h"
 #include "mc/comprehensive/ParticleType.h"
 #include "mc/deps/core/math/Vec3.h"
 #include "mc/deps/shared_types/legacy/LevelSoundEvent.h"
+#include "mc/entity/components_json_legacy/ProjectileHitState.h"
+#include "mc/entity/components_json_legacy/ShouldBounce.h"
 #include "mc/legacy/ActorUniqueID.h"
 #include "mc/world/actor/ActorDefinitionTrigger.h"
 #include "mc/world/actor/ActorType.h"

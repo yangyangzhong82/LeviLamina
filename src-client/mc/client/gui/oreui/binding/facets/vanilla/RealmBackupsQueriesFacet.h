@@ -3,9 +3,9 @@
 #include "mc/_HeaderOutputPredefine.h"
 
 // auto generated inclusion list
-#include "mc/Realms__RealmsBackupsDownloadState.h"
 #include "mc/client/gui/oreui/binding/FacetBase_DEPRECATED.h"
 #include "mc/client/gui/oreui/binding/facets/vanilla/data/LevelSummaryBindings.h"
+#include "mc/client/realms/RealmsBackupsDownloadState.h"
 #include "mc/client/realms/RealmsBackupsState.h"
 #include "mc/deps/core/utility/NonOwnerPointer.h"
 #include "mc/deps/core/utility/pub_sub/Subscription.h"
