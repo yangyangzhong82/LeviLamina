@@ -1,6 +1,7 @@
 #pragma once
 
 #include "mc/_HeaderOutputPredefine.h"
+#include "mc/network/packet/item_stack_request_packet_data/RequestData.h"
 
 // auto generated forward declare list
 // clang-format off
