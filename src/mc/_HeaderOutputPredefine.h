@@ -264,6 +264,13 @@ class ComponentStorageIterator;
 }
 }
 
+#ifndef cerealizer
+template <typename T>
+struct cerealizer {
+    struct SerializedData{};
+};
+#endif
+
 namespace GameInput::v2 {
     class IGameInput;
 }
