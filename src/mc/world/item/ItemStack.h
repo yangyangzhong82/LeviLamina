@@ -29,12 +29,6 @@ public:
     // NOLINTEND
 
 public:
-    ItemStack() {
-        mValid_DeprecatedSeeComment = true;
-        setNull(std::nullopt);
-    }
-
-public:
     // virtual functions
     // NOLINTBEGIN
     virtual void reinit(::Block const& block, int count) /*override*/;
@@ -55,6 +49,8 @@ public:
 public:
     // member functions
     // NOLINTBEGIN
+    MCAPI ItemStack();
+
     MCAPI ItemStack(::ItemStack const& rhs);
 
     MCAPI ::ItemStack clone() const;

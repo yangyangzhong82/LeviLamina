@@ -16,9 +16,8 @@ public:
     // NOLINTEND
 
 public:
-    // prevent constructor by default
-    ChangeFakePlayerScore& operator=(ChangeFakePlayerScore const&);
-    ChangeFakePlayerScore();
+    ChangeFakePlayerScore& operator=(ChangeFakePlayerScore const&) = default;
+    ChangeFakePlayerScore() : mScoreValue(0) {}
 
 public:
     // member functions
