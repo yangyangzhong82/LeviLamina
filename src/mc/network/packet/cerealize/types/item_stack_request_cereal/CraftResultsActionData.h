@@ -1,6 +1,7 @@
 #pragma once
 
 #include "mc/_HeaderOutputPredefine.h"
+#include "mc/network/packet/cerealize/types/item_stack_request_cereal/NetworkItemInstanceDescriptorData.h"
 
 // auto generated forward declare list
 // clang-format off

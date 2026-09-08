@@ -1,6 +1,7 @@
 #pragma once
 
 #include "mc/_HeaderOutputPredefine.h"
+#include "mc/network/packet/cerealize/types/item_stack_request_cereal/RecipeIngredientData.h"
 
 // auto generated inclusion list
 #include "mc/world/inventory/network/TypedServerNetId.h"
