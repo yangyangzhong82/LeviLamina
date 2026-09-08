@@ -69,6 +69,8 @@ public:
         return result;
     }
 
+    LLAPI bool resetPlayerScore(::ScoreboardId const& id, ::Objective& objective);
+
 public:
     // virtual functions
     // NOLINTBEGIN
